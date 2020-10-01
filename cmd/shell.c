@@ -146,7 +146,7 @@ int cmd_help()
 
 int cmd_osver()
 {
-	printk("Odyssey v%s\n",
+	printk("DTBOS v%s\n",
 		STRINGIFY(CONFIG_VERSION_MAJOR) "." \
 		STRINGIFY(CONFIG_VERSION_MINOR));
 	return 0;
