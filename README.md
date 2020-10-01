@@ -2,10 +2,10 @@
 > A basic x86 and ARM operating system
 
 # Planned features
-Userland
-Filesystem
-Multitasking
-More commands
+- Userland
+- Filesystem
+- Multitasking
+- More commands
 
 # Building
 ### Build, and run in QEMU
