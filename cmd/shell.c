@@ -108,6 +108,7 @@ int cmd_splash()
 		}
 	}
 
+
 	getchar(); /* block on input */
 
 	clear_screen();
