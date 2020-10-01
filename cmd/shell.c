@@ -179,7 +179,11 @@ static int run(const char *cmdline)
 
 void start_interactive_shell()
 {
-	cmd_osver();
+	
+	printk("\n\nWelcome to DTBOS v%s\n",
+		STRINGIFY(CONFIG_VERSION_MAJOR) "." \
+		STRINGIFY(CONFIG_VERSION_MINOR));
+		
 
 #if (CONFIG_KEYBOARD || CONFIG_SERIAL) && ARCH_X86
 	while(1) {
