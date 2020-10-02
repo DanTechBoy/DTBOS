@@ -48,7 +48,7 @@ OBJDEPS    := $(patsubst %.o, %.d, $(OBJECTS))
 .PHONY: modules
 
 ##     odyssey: build the odyssey kernel
-odyssey: $(OBJECTS) modules
+dtbos: $(OBJECTS) modules
 ifeq (, $(shell which $(LD)))
 	$(error $(LD) not found)
 endif

@@ -7,7 +7,7 @@ tags:
 ##     clean: clears generated files
 clean:
 	@rm -rf $(ISO) iso dtbos.img odyssey-coverity.tar.gz cov-int
-	@rm -f odyssey dtbos.map odyssey.bin
+	@rm -f odyssey dtbos.map dtbos.bin
 	@find . -not -path "./deps/*" -not -path "./.git/*" \
 		\( -name '*.o' -o -name '*.d' -o -name '*.bin' \) \
 		-exec rm {} \;

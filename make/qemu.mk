@@ -8,12 +8,12 @@ ifeq ($(DEBUG),yes)
 endif
 
 ##     image: build the boot image (ARM)
-image: odyssey
+image: dtbos
 	mkimage -A arm -O linux -T kernel -a 0x0082000000 -e 0x0082000000 \
 		-C none -d $<.bin $<.img
 
 ##     iso: build the ISO (x86)
-iso: odyssey
+iso: dtbos
 	mkdir -p iso/boot/grub/
 	cp config/grub.cfg iso/boot/grub/
 	cp odyssey iso/boot/
@@ -22,7 +22,7 @@ iso: odyssey
 	grub-mkrescue -o $(ISO) iso
 
 ##     boot: launch Odyssey in qemu (x86 and ARM)
-boot: odyssey
+boot: dtbos
 ifeq ($(ARCH),arm)
 	$(MAKE) ARCH=$(ARCH) image
 	$(QEMU) $(QEMU_ARGS) -m size=$(MEMORY) -kernel odyssey

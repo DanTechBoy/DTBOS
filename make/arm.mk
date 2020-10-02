@@ -18,7 +18,7 @@ OBJECTS    += $(BOOT) $(DRV) $(TEST) $(LIB) $(MM) $(SYS) $(CMD)
 
 OBJDEPS    := $(patsubst %.o, %.d, $(OBJECTS))
 
-odyssey: $(OBJECTS)
+dtbos: $(OBJECTS)
 ifeq (, $(shell which $(LD)))
 	$(error $(LD) not found)
 endif
