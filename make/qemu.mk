@@ -16,7 +16,7 @@ image: dtbos
 iso: dtbos
 	mkdir -p iso/boot/grub/
 	cp config/grub.cfg iso/boot/grub/
-	cp odyssey iso/boot/
+	cp dtbos iso/boot/
 	mkdir -p iso/modules
 	cp modules/canary.bin iso/modules/
 	grub-mkrescue -o $(ISO) iso
