@@ -129,6 +129,14 @@ int cmd_exit()
 
 	// in Virtualbox
 	outw(0x4004, 0x3400);
+
+	// Halt CPU
+	printk("\nCPU halted.");
+
+	while(1) {
+		asm("hlt");
+	}
+	
 #endif
 
 	// Won't get here, hopefully
