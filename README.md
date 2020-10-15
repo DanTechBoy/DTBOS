@@ -1,13 +1,13 @@
 # DTBOS
-> A basic x86 and ARM operating system
+A basic x86 and ARM operating system
 
 # Planned features
-- Userland
-- Filesystem
-- Multitasking
-- More commands
+- 👥 Userland
+- 📂 Filesystem
+- 🤹‍♂️ Multitasking
+- 🖥 More commands
 
-# Building
+# ⛏ Building
 ### Build, and run in QEMU
 ```
 $ git clone https://github.com/DanTechBoy/DTBOS.git
