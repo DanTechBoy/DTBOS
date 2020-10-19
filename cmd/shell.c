@@ -1,5 +1,18 @@
 /**
- * SPDX-FileCopyrightText: 2020 Anuradha Weeraman <anuradha@weeraman.com>
+
+________  _________  ________  ________  ________
+|\   ___ \|\___   ___\\   __  \|\   __  \|\   ____\
+\ \  \_|\ \|___ \  \_\ \  \|\ /\ \  \|\  \ \  \___|_
+\ \  \ \\ \   \ \  \ \ \   __  \ \  \\\  \ \_____  \
+ \ \  \_\\ \   \ \  \ \ \  \|\  \ \  \\\  \|____|\  \
+	\ \_______\   \ \__\ \ \_______\ \_______\____\_\  \
+	 \|_______|    \|__|  \|_______|\|_______|\_________\
+																					 \|_________|
+
+shell.c - DTBOS shell
+
+
+ * SPDX-FileCopyrightText: 2020 Anuradha Weeraman <anuradha@weeraman.com> & 2020 DanTechBoy
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
@@ -136,7 +149,7 @@ int cmd_exit()
 	while(1) {
 		asm("hlt");
 	}
-	
+
 #endif
 
 	// Won't get here, hopefully
@@ -187,11 +200,11 @@ static int run(const char *cmdline)
 
 void start_interactive_shell()
 {
-	
+
 	printk("\n\nWelcome to DTBOS v%s\n",
 		STRINGIFY(CONFIG_VERSION_MAJOR) "." \
 		STRINGIFY(CONFIG_VERSION_MINOR));
-		
+
 
 #if (CONFIG_KEYBOARD || CONFIG_SERIAL) && ARCH_X86
 	while(1) {
