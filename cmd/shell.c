@@ -26,6 +26,7 @@ shell.c - DTBOS shell
 #include <sys/tty.h>
 #include <x86/io.h>
 #include <x86/boot/modules.h>
+#include <x86/boot/cpuid.h>
 #endif
 
 static char line[MAX_CMD_LENGTH];
@@ -38,6 +39,8 @@ static const struct kcmd valid_cmds[] = {
 	{ .cmd="exception", .func=cmd_trigger_exception },
 	{ .cmd="modules",   .func=cmd_modules           },
 	{ .cmd="canary",    .func=cmd_canary            },
+	{ .cmd="dtbfetch",  .func=cmd_dtbfetch         },
+
 #endif
 	{ .cmd="exit",      .func=cmd_exit              },
 	{ .cmd="help",      .func=cmd_help              },
@@ -196,6 +199,30 @@ static int run(const char *cmdline)
 
 	printk ("Unknown command: %s\n", cmdline);
 	return 1;
+}
+
+int cmd_dtbfetch()
+{
+	printk(R"EOF(
+		________  _________  ________  ________  ________
+	  |\   ___ \|\___   ___\\   __  \|\   __  \|\   ____\
+	  \ \  \_|\ \|___ \  \_\ \  \|\ /\ \  \|\  \ \  \___|_
+	  \ \  \ \\ \   \ \  \ \ \   __  \ \  \\\  \ \_____  \
+	   \ \  \_\\ \   \ \  \ \ \  \|\  \ \  \\\  \|____|\  \
+	  	\ \_______\   \ \__\ \ \_______\ \_______\____\_\  \
+	  	 \|_______|    \|__|  \|_______|\|_______|\_________\
+ )EOF");
+
+ printk("\n\n\n\n");
+
+
+	printk("Kernel version: v%s\n",
+	STRINGIFY(CONFIG_VERSION_MAJOR) "." \
+	STRINGIFY(CONFIG_VERSION_MINOR-dtbos));
+	cpuidvendor();
+	printk("Compiled on: %s\n",
+	STRINGIFY(__DATE__));
+	return 0;
 }
 
 void start_interactive_shell()

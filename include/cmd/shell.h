@@ -25,6 +25,7 @@ int cmd_help();
 int cmd_osver();
 int cmd_ret();
 int cmd_memmap();
+int cmd_dtbfetch();
 void start_interactive_shell();
 
 #endif

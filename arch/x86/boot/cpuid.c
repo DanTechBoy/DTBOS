@@ -127,3 +127,17 @@ size_t *cpuid()
 
 	return cpuid_str;
 }
+
+size_t *cpuidvendor()
+{
+	asm("mov $0x0, %eax");
+	asm("cpuid");
+	asm("mov %%eax, %0" :"=r" (highest_functionality));
+	asm("mov %%ebx, %0" :"=r" (cpuid_str[0]));
+	asm("mov %%edx, %0" :"=r" (cpuid_str[1]));
+	asm("mov %%ecx, %0" :"=r" (cpuid_str[2]));
+	cpuid_str[3] = '\0';
+
+	printk("CPU vendor ID: %s\n",
+	cpuid_str);
+}
