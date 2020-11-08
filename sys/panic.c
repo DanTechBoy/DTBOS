@@ -9,6 +9,7 @@
 void panic(char *str)
 {
 	printk("PANIC: %s\r\n", str);
+	printk("System halted");
 
 	while(1) {
 #if ARCH_X86

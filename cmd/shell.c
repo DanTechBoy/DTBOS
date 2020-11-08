@@ -20,6 +20,7 @@ shell.c - DTBOS shell
 #include <lib/stdio.h>
 #include <lib/string.h>
 #include <mm/region.h>
+#include <sys/panic.h>
 
 #if ARCH_X86
 #include <ppm/splash.h>
@@ -87,8 +88,8 @@ int cmd_clear()
 
 int cmd_trigger_exception()
 {
-	// Trigger a division by zero
-	printk("%d", 1/0);
+	// Call panic function
+	panic("User initiated crash");
 
 	// Won't get here
 	return 0;
