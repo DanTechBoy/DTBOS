@@ -146,17 +146,16 @@ int cmd_exit()
 
 	// in Virtualbox
 	outw(0x4004, 0x3400);
-
-	// Halt CPU
-	printk("\nCPU halted.");
-
+	// Now safe to power off
+	printk("\nIt is now safe to turn off the computer.");
+	// halt the cpu
 	while(1) {
 		asm("hlt");
 	}
 
 #endif
 
-	// Won't get here, hopefully
+	// We won't get here unless architecture is arm
 	return 0;
 }
 
@@ -232,6 +231,8 @@ void start_interactive_shell()
 	printk("\n\nWelcome to DTBOS v%s\n",
 		STRINGIFY(CONFIG_VERSION_MAJOR) "." \
 		STRINGIFY(CONFIG_VERSION_MINOR));
+
+	printk("Type help for a list of commands\n");
 
 
 #if (CONFIG_KEYBOARD || CONFIG_SERIAL) && ARCH_X86
