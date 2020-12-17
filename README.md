@@ -8,6 +8,10 @@ A basic x86 and ARM operating system
 - 🖥 More commands
 
 # ⛏ Building
+### Building is tested in these systems:
+- ✅ Ubuntu 20.04
+- ✅ Ubuntu 20.10
+- ✅ Debian 10
 ### Build, and run in QEMU
 ```
 $ git clone https://github.com/DanTechBoy/DTBOS.git
